@@ -1,0 +1,1 @@
+- use cursorlist instead of two stacks
