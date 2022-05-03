@@ -19,7 +19,7 @@ func expand(dn string) {
 	prefix.Push(dn)
 	defer prefix.Pop()
 	for _, e := range entries {
-		name := *prefix.Top() + "/" + e.Name()
+		name := *prefix.Peek() + "/" + e.Name()
 		if e.IsDir() {
 			expand(name)
 		} else {

@@ -39,7 +39,7 @@ func parentheses(v []byte) bool {
 			s.Push(c)
 			continue
 		}
-		if !isMatch(c, *s.Top()) {
+		if !isMatch(c, *s.Peek()) {
 			s.Push(c)
 		} else {
 			s.Pop()

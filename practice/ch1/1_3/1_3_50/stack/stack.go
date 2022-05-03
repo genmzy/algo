@@ -1,4 +1,8 @@
-package linkstack
+package stack
+
+import "errors"
+
+var ErrConcurrentModified = errors.New("concurrent modifications")
 
 type node[T any] struct {
 	v    T
@@ -6,8 +10,10 @@ type node[T any] struct {
 }
 
 type Stack[T any] struct {
-	top  *node[T]
-	size int
+	top    *node[T]
+	size   int
+	popped int
+	pushed int
 }
 
 func (s *Stack[T]) Empty() bool {
@@ -25,6 +31,7 @@ func (s *Stack[T]) Push(v T) {
 	}
 	s.top = n
 	s.size++
+	s.pushed++
 }
 
 func (s *Stack[T]) Pop() *T {
@@ -35,6 +42,7 @@ func (s *Stack[T]) Pop() *T {
 	s.top = n.next
 	n.next = nil // avoid next one dissociated
 	s.size--
+	s.popped++
 	return &n.v
 }
 
@@ -45,7 +53,12 @@ func (s *Stack[T]) Peek() *T {
 
 // traverse from the top to the bottom of the stack
 func (s *Stack[T]) Traverse(f func(T) bool) {
+	popped := s.popped
+	pushed := s.pushed
 	for p := s.top; p != nil; p = p.next {
+		if s.popped+s.size != s.pushed || s.popped != popped || s.pushed != pushed {
+			panic(ErrConcurrentModified)
+		}
 		if f(p.v) {
 			break
 		}

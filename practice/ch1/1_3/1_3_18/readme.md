@@ -1,0 +1,1 @@
+- delete the node next to x

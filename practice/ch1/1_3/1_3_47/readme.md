@@ -1,0 +1,3 @@
+- see `cases/ch1/1_3/linkstack/linkstack.go` for stack
+- see `cases/ch1/1_3/queue/queue.go` for queue
+- see `practice/ch1/1_3/1_3_32/steque/steque.go` for steque

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"algo/practice/ch1/1_3/1_3_19_28/linklist"
+	"algo/practice/ch1/1_3/1_3_19_to_28/linklist"
 	"bufio"
 	"fmt"
 	"os"

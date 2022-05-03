@@ -11,7 +11,7 @@ func dump(sq *steque.Steque[int]) {
 		fmt.Printf("%d ", v)
 		return false
 	})
-	fmt.Println()
+	fmt.Println("lenth:", sq.Size())
 }
 
 func main() {
@@ -29,6 +29,12 @@ func main() {
 	for i := 0; i < 10; i++ {
 		sq.Enqueue(i)
 	}
+	dump(sq)
+	with := &steque.Steque[int]{}
+	for i := 100; i > 90; i-- {
+		with.Enqueue(i)
+	}
+	sq.Catenation(with)
 	dump(sq)
 	size = sq.Size()
 	for i := 0; i < size; i++ {

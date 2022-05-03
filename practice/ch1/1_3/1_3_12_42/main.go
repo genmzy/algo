@@ -6,7 +6,8 @@ import (
 	"strconv"
 )
 
-func CopyQueue[T any](q *linkstack.Stack[T]) *linkstack.Stack[T] {
+// 1.3.12 / 1.3.42
+func CopyStack[T any](q *linkstack.Stack[T]) *linkstack.Stack[T] {
 	ret := &linkstack.Stack[T]{}
 	q.Traverse(func(v T) bool {
 		ret.Push(v)
@@ -41,6 +42,6 @@ func main() {
 	}
 	dump(q)
 
-	ret := CopyQueue(q)
+	ret := CopyStack(q)
 	dump(ret)
 }

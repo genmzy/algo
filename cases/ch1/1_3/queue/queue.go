@@ -51,3 +51,19 @@ func (q *Queue[T]) Traverse(f func(T) bool) {
 		}
 	}
 }
+
+// 1.3.47
+func (q *Queue[T]) Catenation(with *Queue[T]) {
+	if with.size == 0 {
+		return
+	}
+	if q.size == 0 {
+		q.first = with.first
+		q.size = with.size
+		q.last = with.last
+		return
+	}
+	q.last.next = with.first
+	q.size += with.size
+	q.last = with.last
+}

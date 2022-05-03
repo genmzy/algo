@@ -62,3 +62,16 @@ func (sq *Steque[T]) Traverse(f func(v T) bool) {
 func (sq *Steque[T]) Size() int {
 	return sq.size
 }
+
+func (sq *Steque[T]) Catenation(with *Steque[T]) {
+	if with.size == 0 {
+		return
+	}
+	if sq.size == 0 {
+		sq.top = with.top
+	} else {
+		sq.tail.next = with.top
+	}
+	sq.tail = with.tail
+	sq.size += with.size
+}
