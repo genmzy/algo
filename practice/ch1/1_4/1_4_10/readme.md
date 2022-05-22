@@ -1,0 +1,1 @@
+- see `./cases/ch1/1_1/binarysearch/binarysearch.go`

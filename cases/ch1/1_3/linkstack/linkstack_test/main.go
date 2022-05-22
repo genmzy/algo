@@ -20,6 +20,19 @@ func main() {
 		s.Push(i)
 	}
 	dump(s)
+	fmt.Println(s.Empty())
+
+	fmt.Printf("popped: ")
+	for i := 0; i < 3; i++ {
+		if p := s.Pop(); p != nil {
+			fmt.Printf("%d ", *p)
+		} else {
+			break
+		}
+	}
+	fmt.Println()
+	dump(s)
+	fmt.Println(s.Empty())
 
 	with := &linkstack.Stack[int]{}
 	for i := 100; i > 90; i-- {

@@ -5,6 +5,12 @@ type node[T any] struct {
 	next *node[T]
 }
 
+// pop   n(k)
+//        ↑
+//       n(k) -> n(k-1) -> n(k-2) -> ... -> n(2) -> n(1)
+//        ↑                                          ↓
+// push n(k+1)                             enqueue: n(0)
+
 type Steque[T any] struct {
 	top  *node[T]
 	tail *node[T]
