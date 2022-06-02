@@ -6,7 +6,8 @@
       "configuration": {
         "request": "launch",
         "program": "${fileDirname}",
-        "mode": "debug"
+        "mode": "debug",
+        "args": ["*${CommandLineArgs}"]
       }
     }
   }

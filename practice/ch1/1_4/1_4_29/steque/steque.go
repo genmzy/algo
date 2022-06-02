@@ -9,8 +9,7 @@ import "algo/cases/ch1/1_3/linkstack"
 // push n(k+1)                             enqueue: n(0)
 
 type Steque[T any] struct {
-	m linkstack.Stack[T]
-	n linkstack.Stack[T]
+	m, n linkstack.Stack[T]
 }
 
 func (sq *Steque[T]) reverseM() {
