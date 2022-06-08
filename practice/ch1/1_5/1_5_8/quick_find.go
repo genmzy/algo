@@ -31,6 +31,7 @@ func (qf *quickFindUF) Union(p, q int) {
 			qf.components[i] = qf.components[q]
 		}
 	}
+	qf.count--
 }
 
 // return the component id of p

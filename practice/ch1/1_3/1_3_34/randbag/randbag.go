@@ -1,5 +1,9 @@
 package randbag
 
+func NewRandBag[T comparable]() *RandBag[T] {
+	return &RandBag[T]{bag: make(map[T]bool)}
+}
+
 type RandBag[T comparable] struct {
 	bag map[T]bool
 }
